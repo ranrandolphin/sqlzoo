@@ -42,3 +42,19 @@ WHERE p.ListPrice > 1000;
 
 -- #5. Give the CompanyName of those customers with orders over $100000. 
 -- Include the subtotal plus tax plus freight.
+SELECT c.CompanyName FROM CustomerAW c
+JOIN SalesOrderHeader soh ON c.CustomerID = soh.CustomerID
+WHERE soh.SubTotal > 100000;
+
+-- #6. Find the number of left racing socks ('Racing Socks, L') ordered by CompanyName 'Riding Cycles'
+SELECT count(*)
+FROM ProductAW paw 
+JOIN SalesOrderDetail sod ON paw.ProductID = sod.ProductID
+JOIN SalesOrderHeader soh ON soh.SalesOrderID = sod.SalesOrderID
+JOIN CustomerAW c ON c.CustomerID = soh.CustomerID
+WHERE paw.Name = 'Racing Socks, L'
+ORDER BY c.CompanyName = 'Riding Cycles';
+
+-- #7. A "Single Item Order" is a customer order where only one item is ordered. 
+-- Show the SalesOrderID and the UnitPrice for every Single Item Order.
+
