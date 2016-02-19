@@ -58,3 +58,4 @@ ORDER BY c.CompanyName = 'Riding Cycles';
 -- #7. A "Single Item Order" is a customer order where only one item is ordered. 
 -- Show the SalesOrderID and the UnitPrice for every Single Item Order.
 
+-- wo shi meme ran
